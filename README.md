@@ -101,7 +101,7 @@ This project is licensed under the [MIT License](https://github.com/N-ADITHYA/Lo
 ##  Author
 
 -   **Adithya N**
--   **Portfolio**: [iadiee.live](https://iadiee.live/)
+-   **Portfolio**: [iadiee.live](https://www.iadiee.live/)
 -   **GitHub**: [@N-ADITHYA](https://github.com/N-ADITHYA)
 
 ---
