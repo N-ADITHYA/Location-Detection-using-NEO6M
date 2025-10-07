@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live GPS Tracker</title>
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    let map;
+    let marker;
+
+    async function fetchGPSData() {
+      try {
+        let response = await fetch("http://192.168.228.21:8000/gps/latest");
+        let data = await response.json();
+
+        if (data.latitude && data.longitude) {
+          document.getElementById("latitude").innerText = data.latitude;
+          document.getElementById("longitude").innerText = data.longitude;
+
+          let lat = parseFloat(data.latitude);
+          let lon = parseFloat(data.longitude);
+
+          if (!map) {
+            map = L.map('map').setView([lat, lon], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            marker = L.marker([lat, lon]).addTo(map);
+          } else {
+            marker.setLatLng([lat, lon]);
+            map.setView([lat, lon]);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching GPS data:", error);
+      }
+    }
+
+    setInterval(fetchGPSData, 2000);
+  </script>
+</head>
+<body>
+  <h1>Live GPS Tracker</h1>
+  <p><strong>Latitude:</strong> <span id="latitude">Waiting...</span></p>
+  <p><strong>Longitude:</strong> <span id="longitude">Waiting...</span></p>
+  <div id="map"></div>
+</body>
+</html>

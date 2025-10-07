@@ -1,0 +1,16 @@
+# JetBrains IDEs
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/dataSources/
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+
+
+.venv/
+/.venv
