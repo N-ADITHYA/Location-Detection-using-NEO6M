@@ -65,8 +65,8 @@ Connect the **NEO-6M GPS Module** to the **ESP8266** as shown in the table below
 
 1.  **Clone the Repository**:
     ```bash
-    git clone [https://github.com/N-ADITHYA/Location-Detection-using-NEO6M.git](https://github.com/N-ADITHYA/Location-Detection-using-NEO6M.git)
-    cd Location-Detection-using-NEO6M
+    git clone https://github.com/N-ADITHYA/Location-Detection-using-NEO6M.git
+    cd dev-app
     ```
 2.  **Install Dependencies**: Make sure you have Python 3.9+ installed.
     ```bash
